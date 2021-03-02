@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: ARMv8-Immortalwrt-master
+name: ARMv8-Immortalwrt-21.02
 
 on:
   repository_dispatch:
@@ -23,10 +23,10 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds/master.conf.default
-  CONFIG_FILE: configs/armv8-master.config
-  DIY_SH: scripts/master-armv8.sh
+  REPO_BRANCH: openwrt-21.02
+  FEEDS_CONF: feeds/21.02.conf.default
+  CONFIG_FILE: configs/armv8-21.02.config
+  DIY_SH: scripts/21.02-armv8.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
@@ -157,7 +157,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M"-ARMv8-Immortalwrt-master)"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M"-ARMv8-Immortalwrt-21.02)"
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
