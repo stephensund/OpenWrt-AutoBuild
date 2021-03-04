@@ -22,6 +22,14 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 # 为lean源补充v2包
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/lean/v2ray package/lean/v2ray
 
+# 为lean源添加sub-web & subconverter
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/sub-web package/sub-web
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subconverter package/subconverter
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/duktape package/duktape
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/jpcre2 package/jpcre2
+svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/rapidjson package/rapidjson
+svn co https://github.com/immortalwrt/packages/trunk/lang/node-yarn package/node-yarn
+
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-app-jd-dailybonus
