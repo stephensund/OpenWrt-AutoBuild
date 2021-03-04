@@ -35,12 +35,6 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/jpcre2 pa
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/rapidjson package/rapidjson
 svn co https://github.com/immortalwrt/packages/trunk/lang/node-yarn package/node-yarn
 
-# Use immortalwrt's https-dns-proxy and its luci
-rm -rf feeds/packages/net/https-dns-proxy
-rm -rf feeds/luci/applications/luci-app-https-dns-proxy
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-https-dns-proxy package/luci-app-https-dns-proxy
-svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/https-dns-proxy package/https-dns-proxy
-
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
@@ -83,10 +77,6 @@ git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-a
 git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
 
-
-# Add luci-theme-opentopd
-svn co https://github.com/281677160/openwrt-package/trunk/luci-theme-opentopd package/luci-theme-opentopd
-
 # Add luci-theme-edge
 git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
 
@@ -115,8 +105,6 @@ pushd feeds/packages/utils
 rm -rf syncthing
 svn co https://github.com/openwrt/packages/trunk/utils/syncthing
 popd
-
-
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
