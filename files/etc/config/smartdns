@@ -1,7 +1,6 @@
 
 config smartdns
 	option server_name 'smartdns'
-	option dualstack_ip_selection '1'
 	option prefetch_domain '1'
 	option serve_expired '1'
 	option seconddns_no_speed_check '0'
@@ -19,8 +18,6 @@ config smartdns
 	option seconddns_no_rule_ipset '0'
 	option seconddns_no_rule_soa '0'
 	option cache_size '20000'
-	option rr_ttl '3600'
-	option rr_ttl_min '5'
 	option redirect 'none'
 	option force_aaaa_soa '0'
 	list old_redirect 'none'
