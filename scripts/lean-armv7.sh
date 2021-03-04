@@ -1,6 +1,12 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
+# 调整CFLAGS等级为O2
+sed -i 's/Os/O2/g' include/target.mk
+
+# 开启irqbalance
+sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
+
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
@@ -30,6 +36,12 @@ svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/jpcre2 pa
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/rapidjson package/rapidjson
 svn co https://github.com/immortalwrt/packages/trunk/lang/node-yarn package/node-yarn
 
+# Use immortalwrt's https-dns-proxy and its luci
+rm -rf feeds/packages/net/https-dns-proxy
+rm -rf feeds/luci/applications/luci-app-https-dns-proxy
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-https-dns-proxy package/luci-app-https-dns-proxy
+svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/https-dns-proxy package/https-dns-proxy
+
 # Add Jerrykuku's packages(vssr/jd-daily/argon theme)
 rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-app-jd-dailybonus
@@ -43,7 +55,12 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jer
 git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 
 # Add luci-app-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+rm -rf package/openwrt-passwall/chinadns-ng
+
+# Add chinadns-ng and its luci
+git clone https://github.com/pexcn/openwrt-chinadns-ng.git package/chinadns-ng
+git clone -b luci --depth=1 https://github.com/pexcn/openwrt-chinadns-ng package/luci-app-chinadns-ng
 
 # Add OpenClash.
 git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
