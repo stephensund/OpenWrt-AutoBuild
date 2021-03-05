@@ -64,12 +64,16 @@ popd
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-svn co https://github.com/281677160/openwrt-package/trunk/adguardhome package/adguardhome
+git clone --depth=1 https://github.com/SuLingGG/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-theme-edge
 git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
 
+# Use Lienol's https-dns-proxy package
+pushd feeds/packages/net
+rm -rf https-dns-proxy
+svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
+popd
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
