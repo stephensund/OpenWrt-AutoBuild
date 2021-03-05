@@ -56,9 +56,6 @@ git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-pac
 # Add luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
-# Add chinadns-ng and its luci
-git clone -b luci --depth=1 https://github.com/pexcn/openwrt-chinadns-ng package/luci-app-chinadns-ng
-
 # Add OpenClash.
 git clone -b master --depth=1 https://github.com/vernesong/OpenClash package/openclash
 
