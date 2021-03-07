@@ -15,6 +15,12 @@ popd
 # 删除lienol luci内的旧版argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 
+# 替换smartdns
+rm -rf feeds/package/net/smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+git clone https://github.com/pymumu/smartdns package/smartdns
+git clone -b master https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+
 # 为lean源添加sub-web & subconverter
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/sub-web package/sub-web
 svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subconverter package/subconverter
