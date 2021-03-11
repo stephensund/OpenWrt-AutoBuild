@@ -1,8 +1,8 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-# 调整CFLAGS等级为O2
-sed -i 's/Os/O2/g' include/target.mk
+# 调整CFLAGS等级为O3
+sed -i 's/Os/O3/g' include/target.mk
 
 # 开启irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
