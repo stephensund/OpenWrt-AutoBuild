@@ -16,6 +16,9 @@ git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsf
 # Add luci-app-godproxy
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
+# 补全Openclash依赖
+sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/ctcgfw/luci-app-openclash/Makefile
+
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
 open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')

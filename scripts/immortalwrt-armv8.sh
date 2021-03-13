@@ -16,6 +16,9 @@ git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsf
 # Add luci-app-godproxy
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
+# 补全Openclash依赖
+sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/ctcgfw/luci-app-openclash/Makefile
+
 # 旁路由预置防火墙命令
 pushd package/network/config/firewall/files
 sed -i "/special user chains, e.g. input_wan_rule or postrouting_lan_rule/a\iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" firewall.user
