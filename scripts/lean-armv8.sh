@@ -56,17 +56,14 @@ git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-pac
 # Add luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
-# Add OpenClash
+# Add openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash  package/luci-app-openclash
+pushd package/luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
 
 # 补全Openclash依赖
 sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/luci-app-openclash/Makefile
-
-# Add po2lmo
-git clone https://github.com/openwrt-dev/po2lmo.git package/po2lmo
-pushd package/po2lmo
-make && sudo make install
-popd
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
