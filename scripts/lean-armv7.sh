@@ -87,8 +87,9 @@ rm -rf https-dns-proxy
 svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
 popd
 
-# Disable goproxy in UnblockNeteaseMusicGo
+# Disable goproxy in some packages
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
+sed -i 's/default y/default n/g' package/lean/v2ray-plugin/Makefile
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
