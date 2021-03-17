@@ -90,6 +90,10 @@ popd
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
 sed -i 's/default y/default n/g' package/lean/v2ray-plugin/Makefile
 
+# bypass与passwall默认子项目全选
+sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+sed -i 's/default n/default y/g' package/openwrt-passwall/luci-app-passwall/Makefile
+
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
 open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
