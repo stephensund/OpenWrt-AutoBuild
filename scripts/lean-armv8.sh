@@ -25,16 +25,6 @@ svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 
-# 为lean源添加sub-web & subconverter
-rm -rf feeds/packages/lang/node
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/sub-web package/sub-web
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subconverter package/subconverter
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/duktape package/duktape
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/jpcre2 package/jpcre2
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/rapidjson package/rapidjson
-svn co https://github.com/immortalwrt/packages/trunk/lang/node package/node
-svn co https://github.com/immortalwrt/packages/trunk/lang/node-yarn package/node-yarn
-
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
