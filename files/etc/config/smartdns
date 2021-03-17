@@ -10,7 +10,7 @@ config smartdns
 	option coredump '0'
 	option port '6053'
 	option ipv6_server '0'
-	option seconddns_port '5335'
+	option seconddns_port '6054'
 	option seconddns_server_group 'fq_dns'
 	option seconddns_no_rule_addr '0'
 	option seconddns_no_rule_nameserver '0'
