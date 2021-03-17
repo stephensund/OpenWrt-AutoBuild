@@ -87,18 +87,8 @@ rm -rf https-dns-proxy
 svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
 popd
 
-# Fix libssh
-pushd feeds/packages/libs
-rm -rf libssh
-svn co https://github.com/openwrt/packages/trunk/libs/libssh
-popd
-
-# Use snapshots syncthing package
-pushd feeds/packages/utils
-rm -rf syncthing
-svn co https://github.com/openwrt/packages/trunk/utils/syncthing
-popd
-
+# Disable goproxy in UnblockNeteaseMusicGo
+sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
