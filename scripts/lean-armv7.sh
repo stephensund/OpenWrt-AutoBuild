@@ -42,7 +42,7 @@ git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxmi
 git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
 git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
-sed -i 's/DEPENDS.*/& \+luci-app-argon-config/g'  package/jerrykuku/luci-app-argon-config/Makefile
+sed -i 's/DEPENDS.*/& \+luci-theme-argon/g'  package/jerrykuku/luci-app-argon-config/Makefile
 
 # Add Lienol's Packages
 git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
