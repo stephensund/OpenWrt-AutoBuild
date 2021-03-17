@@ -20,6 +20,10 @@ git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-god
 # 补全Openclash依赖
 sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/ctcgfw/luci-app-openclash/Makefile
 
+# bypass与passwall默认子项目全选
+sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+sed -i 's/default n/default y/g' package/lienol/luci-app-passwall/Makefile
+
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
 open_clash_main_url=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv7 | sed 's/.*url\": \"//g' | sed 's/\"//g')
