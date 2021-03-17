@@ -40,7 +40,6 @@ svn co https://github.com/immortalwrt/packages/trunk/lang/node-yarn package/node
 rm -rf package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 sed -i 's/DEPENDS.*/& \+luci-theme-argon/g'  package/jerrykuku/luci-app-argon-config/Makefile
 
