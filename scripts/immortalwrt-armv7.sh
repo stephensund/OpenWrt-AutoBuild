@@ -9,6 +9,7 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
 # Add luci-app-bypass
 git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
