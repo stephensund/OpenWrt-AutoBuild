@@ -7,10 +7,6 @@ sed -i 's/Os/O3/g' include/target.mk
 # 开启irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
-# Add luci-app-bypass
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
@@ -20,9 +16,10 @@ git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-god
 # 补全Openclash依赖
 sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/ctcgfw/luci-app-openclash/Makefile
 
-# bypass与passwall默认子项目全选
-sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+# passwall/ssrplus/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/lienol/luci-app-passwall/Makefile
+sed -i 's/default n/default y/g' package/lean/luci-app-ssr-plus/Makefile
+sed -i 's/default n/default y/g' package/ctcgfw/luci-app-vssr/Makefile
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core

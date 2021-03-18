@@ -20,16 +20,11 @@ git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsf
 # Add luci-app-godproxy
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
-# Add luci-app-bypass
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-
 # Add Jerrykuku's packages
 rm -rf package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/lua-maxminddb package/jerrykuku/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-argon-config package/jerrykuku/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-vssr
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 sed -i 's/DEPENDS.*/& \+luci-theme-argon/g'  package/jerrykuku/luci-app-argon-config/Makefile
 
@@ -80,9 +75,11 @@ popd
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
 sed -i 's/default y/default n/g' package/lean/v2ray-plugin/Makefile
 
-# bypass与passwall默认子项目全选
-sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+# passwall/ssrplus/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/openwrt-passwall/luci-app-passwall/Makefile
+sed -i 's/default n/default y/g' feeds/helloworld/luci-app-ssr-plus/Makefile
+sed -i 's/default n/default y/g' package/jerrykuku/luci-app-vssr/Makefile
+
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
