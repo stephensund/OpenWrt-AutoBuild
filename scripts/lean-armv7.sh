@@ -14,6 +14,19 @@ export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk
 sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
 popd
 
+# 替换默认软件源为腾讯源（ipq4019）
+pushd files/etc/opkg
+touch distfeeds.conf
+cat > distfeeds.conf <<EOF
+src/gz core https://mirrors.cloud.tencent.com/lede/snapshots/targets/ipq40xx/generic/packages/
+src/gz base https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_cortex-a7_neon-vfpv4/base/
+src/gz luci https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_cortex-a7_neon-vfpv4/luci/
+src/gz packages https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_cortex-a7_neon-vfpv4/packages/
+src/gz routing https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_cortex-a7_neon-vfpv4/routing/
+src/gz telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_cortex-a7_neon-vfpv4/telephony/
+EOF
+popd
+
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 

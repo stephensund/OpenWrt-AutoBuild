@@ -7,6 +7,19 @@ sed -i 's/Os/O3/g' include/target.mk
 # 开启irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
+# 替换默认软件源为腾讯源（armv8）
+pushd files/etc/opkg
+touch distfeeds.conf
+cat > distfeeds.conf <<EOF
+src/gz core https://mirrors.cloud.tencent.com/lede/snapshots/targets/armvirt/64/packages
+src/gz base https://mirrors.cloud.tencent.com/lede/snapshots/packages/aarch64_cortex-a53/base
+src/gz luci https://mirrors.cloud.tencent.com/lede/snapshots/packages/aarch64_cortex-a53/luci
+src/gz packages https://mirrors.cloud.tencent.com/lede/snapshots/packages/aarch64_cortex-a53/packages
+src/gz routing https://mirrors.cloud.tencent.com/lede/snapshots/packages/aarch64_cortex-a53/routing
+src/gz telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/aarch64_cortex-a53/telephony
+EOF
+popd
+
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
