@@ -49,10 +49,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add OpenClash
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/openclash
-
-# Add po2lmo
-git clone https://github.com/openwrt-dev/po2lmo.git
-pushd po2lmo
+pushd package/openclash/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
 
