@@ -50,6 +50,10 @@ git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 sed -i 's/DEPENDS.*/& \+luci-theme-argon/g'  package/jerrykuku/luci-app-argon-config/Makefile
 
+# 修改vssr的chnlist
+sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/jerrykuku/luci-app-vssr/luasrc/controller/vssr.lua
+sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/jerrykuku/luci-app-vssr/root/usr/share/vssr/update.lua
+
 # Add Lienol's Packages
 git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
 
