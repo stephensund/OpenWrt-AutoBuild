@@ -27,6 +27,10 @@ src/gz telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_c
 EOF
 popd
 
+# Add Mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
+
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
