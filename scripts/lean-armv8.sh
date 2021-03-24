@@ -32,10 +32,6 @@ pushd package/network/config/firewall/files
 sed -i "/special user chains, e.g. input_wan_rule or postrouting_lan_rule/a\iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" firewall.user
 popd
 
-# Add Mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
-
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 

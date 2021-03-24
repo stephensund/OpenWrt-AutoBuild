@@ -7,10 +7,6 @@ sed -i 's/Os/O3/g' include/target.mk
 # 开启irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
-# Add Mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
-
 # 修改vssr的chnlist
 sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/ctcgfw/luci-app-vssr/luasrc/controller/vssr.lua
 sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/ctcgfw/luci-app-vssr/root/usr/share/vssr/update.lua
