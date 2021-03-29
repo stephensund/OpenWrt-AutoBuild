@@ -89,12 +89,6 @@ git clone -b lede https://github.com/pymumu/luci-app-smartdns package/luci-app-s
 # Add luci-theme-edge
 git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge package/luci-theme-edge
 
-# Use Lienol's https-dns-proxy package
-pushd feeds/packages/net
-rm -rf https-dns-proxy
-svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy
-popd
-
 # Disable goproxy in some packages
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
 sed -i 's/default y/default n/g' package/lean/v2ray-plugin/Makefile
