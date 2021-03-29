@@ -8,8 +8,8 @@ sed -i 's/Os/O3/g' include/target.mk
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
 # 修改vssr的chnlist
-sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/ctcgfw/luci-app-vssr/luasrc/controller/vssr.lua
-sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/ctcgfw/luci-app-vssr/root/usr/share/vssr/update.lua
+sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' feeds/luci/applications/luci-app-vssr/luasrc/controller/vssr.lua
+sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' feeds/luci/applications/luci-app-vssr/root/usr/share/vssr/update.lua
 
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
