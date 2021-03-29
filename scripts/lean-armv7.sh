@@ -71,8 +71,7 @@ sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/openclash/luci-app-open
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 
 # Add adguardhome
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-adguardhome luci/applications/luci-app-adguardhome
-svn co https://github.com/immortalwrt/packages/branches/openwrt-18.06/net/adguardhome packages/net/adguardhome
+git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman package/luci-app-diskman
