@@ -23,7 +23,7 @@ git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsf
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # 补全Openclash依赖
-sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  package/ctcgfw/luci-app-openclash/Makefile
+sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  feeds/luci/applications/luci-app-openclash/Makefile
 
 # 旁路由预置防火墙命令
 pushd package/network/config/firewall/files
@@ -33,7 +33,7 @@ popd
 # passwall/ssrplus/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/lienol/luci-app-passwall/Makefile
 sed -i 's/default n/default y/g' package/lean/luci-app-ssr-plus/Makefile
-sed -i 's/default n/default y/g' package/ctcgfw/luci-app-vssr/Makefile
+sed -i 's/default n/default y/g' feeds/luci/applications/luci-app-vssr/Makefile
 
 # preset cores for openclash
 mkdir -p files/etc/openclash/core
