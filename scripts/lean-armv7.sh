@@ -11,7 +11,7 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
 export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
-sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
+sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H:%M"))/g" zzz-default-settings
 popd
 
 # 替换默认软件源为腾讯源（ipq4019）
