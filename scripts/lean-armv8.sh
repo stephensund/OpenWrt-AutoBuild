@@ -27,11 +27,6 @@ export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk
 sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
 popd
 
-# 旁路由预置防火墙命令
-pushd package/network/config/firewall/files
-sed -i "/special user chains, e.g. input_wan_rule or postrouting_lan_rule/a\iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" firewall.user
-popd
-
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}

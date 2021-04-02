@@ -25,10 +25,6 @@ git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-god
 # 补全Openclash依赖
 sed -i 's/DEPENDS.*/& \+kmod-tun +libcap-bin/g'  feeds/luci/applications/luci-app-openclash/Makefile
 
-# 旁路由预置防火墙命令
-pushd package/network/config/firewall/files
-sed -i "/special user chains, e.g. input_wan_rule or postrouting_lan_rule/a\iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" firewall.user
-popd
 
 # passwall/ssrplus/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/lienol/luci-app-passwall/Makefile
