@@ -13,7 +13,7 @@ sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-sed -i 's/smartdns-le/smartdns/g' package/luci-app-bypass/Makefile
+git clone https://github.com/garypang13/smartdns-le package/smartdns-le
 sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
 
 # Add luci-app-dnsfilter

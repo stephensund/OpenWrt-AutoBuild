@@ -13,7 +13,7 @@ sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/d
 
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-sed -i 's/smartdns-le/smartdns/g' package/luci-app-bypass/Makefile
+git clone https://github.com/garypang13/smartdns-le package/smartdns-le
 sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
 
 # Add luci-app-dnsfilter
