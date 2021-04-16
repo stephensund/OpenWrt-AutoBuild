@@ -97,7 +97,7 @@ git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge packa
 # Disable goproxy in some packages
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
 
-# passwall/ssrplus/vssr默认子项目全选
+# passwall/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/openwrt-passwall/luci-app-passwall/Makefile
 sed -i 's/default n/default y/g' package/jerrykuku/luci-app-vssr/Makefile
 
