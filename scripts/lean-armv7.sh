@@ -27,12 +27,7 @@ src/gz telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_c
 EOF
 popd
 
-# Add bypass
-git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-git clone https://github.com/garypang13/smartdns-le package/smartdns-le
-sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+
 
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
@@ -48,15 +43,25 @@ git clone https://github.com/jerrykuku/luci-app-vssr package/jerrykuku/luci-app-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/jerrykuku/luci-theme-argon
 sed -i 's/DEPENDS.*/& \+luci-theme-argon/g'  package/jerrykuku/luci-app-argon-config/Makefile
 
-# 修改vssr的chnlist
-sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/jerrykuku/luci-app-vssr/luasrc/controller/vssr.lua
-sed -i 's,ispip.clang.cn/all_cn.txt,raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt,g' package/jerrykuku/luci-app-vssr/root/usr/share/vssr/update.lua
-
-# Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package package/Lienol-package
-
-# Add luci-app-passwall
+# Add passwall
+rm -rf package/lean/dns2socks 
+rm -rf package/lean/ipt2socks 
+rm -rf package/lean/kcptun
+rm -rf feeds/packages/net/kcptun
+rm -rf package/lean/microsocks
+rm -rf package/lean/pdnsd-alt
+rm -rf package/lean/simple-obfs
+rm -rf package/lean/shadowsocksr-libev
+rm -rf package/lean/trojan
+rm -rf package/lean/v2ray-plugin
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+
+# Add bypass
+git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
+find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+git clone https://github.com/garypang13/smartdns-le package/smartdns-le
+sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
 
 # Add OpenClash
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/openclash
@@ -91,11 +96,9 @@ git clone -b 18.06 --depth=1 https://github.com/garypang13/luci-theme-edge packa
 
 # Disable goproxy in some packages
 sed -i 's/default y/default n/g' package/lean/UnblockNeteaseMusicGo/Makefile
-sed -i 's/default y/default n/g' package/lean/v2ray-plugin/Makefile
 
 # passwall/ssrplus/vssr默认子项目全选
 sed -i 's/default n/default y/g' package/openwrt-passwall/luci-app-passwall/Makefile
-sed -i 's/default n/default y/g' feeds/helloworld/luci-app-ssr-plus/Makefile
 sed -i 's/default n/default y/g' package/jerrykuku/luci-app-vssr/Makefile
 
 
