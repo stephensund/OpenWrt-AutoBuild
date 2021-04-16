@@ -12,8 +12,8 @@
 name: Update-Checker
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-18.06-k5.4
+  REPO_URL: https://github.com/stephensund/lede
+  REPO_BRANCH: master
 
 on:
   workflow_dispatch:

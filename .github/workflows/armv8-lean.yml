@@ -22,7 +22,7 @@ on:
 #    - cron: 0 0 * * 5
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/stephensund/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds/lean.conf.default
   CONFIG_FILE: configs/armv8-lean.config
