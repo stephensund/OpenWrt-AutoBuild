@@ -7,6 +7,9 @@ sed -i 's/Os/O3/g' include/target.mk
 # 开启irqbalance
 sed -i 's/0/1/g' feeds/packages/utils/irqbalance/files/irqbalance.config
 
+# Add luci-app-netspeedtest
+git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
+
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
 git clone https://github.com/garypang13/smartdns-le package/smartdns-le

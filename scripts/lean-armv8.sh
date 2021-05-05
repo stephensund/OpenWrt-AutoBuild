@@ -27,6 +27,9 @@ export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk
 sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d-%H%M"))/g" zzz-default-settings
 popd
 
+# Add luci-app-netspeedtest
+git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
+
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 

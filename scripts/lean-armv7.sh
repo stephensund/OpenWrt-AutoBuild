@@ -27,7 +27,8 @@ src/gz telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/arm_c
 EOF
 popd
 
-
+# Add luci-app-netspeedtest
+git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 
 # Add luci-app-dnsfilter
 git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
