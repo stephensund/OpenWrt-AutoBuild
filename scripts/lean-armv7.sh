@@ -52,15 +52,12 @@ rm -rf feeds/packages/net/kcptun
 rm -rf package/lean/microsocks
 rm -rf package/lean/pdnsd-alt
 rm -rf package/lean/simple-obfs
-rm -rf package/lean/shadowsocksr-libev
 rm -rf package/lean/trojan
 rm -rf package/lean/v2ray-plugin
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add bypass
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 git clone https://github.com/garypang13/smartdns-le package/smartdns-le
 sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
 
