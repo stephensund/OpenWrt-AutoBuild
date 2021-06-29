@@ -28,10 +28,10 @@ popd
 git clone https://github.com/sirpdboy/NetSpeedTest package/NetSpeedTest
 
 # Add luci-app-dnsfilter
-git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
+#git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
 
 # Add luci-app-godproxy
-git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+#git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 # Add Jerrykuku's packages
 rm -rf package/lean/luci-theme-argon
@@ -54,9 +54,9 @@ rm -rf package/lean/v2ray-plugin
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 
 # Add bypass
-git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-git clone https://github.com/garypang13/smartdns-le package/smartdns-le
-sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
+#git clone --depth=1 https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+#git clone https://github.com/garypang13/smartdns-le package/smartdns-le
+#sed -i 's/default n/default y/g' package/luci-app-bypass/Makefile
 
 # Add OpenClash
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash package/openclash
@@ -103,24 +103,3 @@ wget -qO- $clash_tun_url | gunzip -c > files/etc/openclash/core/clash_tun
 wget -qO- $clash_game_url | tar xOvz > files/etc/openclash/core/clash_game
 chmod +x files/etc/openclash/core/clash*
 
-
-# preset terminal tools(oh-my-zsh)
-
-mkdir -p files/root
-pushd files/root
-
-## Install oh-my-zsh
-# Clone oh-my-zsh repository
-git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
-
-# Install extra plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
-
-# Get .zshrc dotfile
-cp $GITHUB_WORKSPACE/data/zsh/.zshrc .
-popd
-
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
